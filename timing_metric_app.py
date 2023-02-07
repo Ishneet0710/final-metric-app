@@ -19,7 +19,7 @@ def callback(frame):
     global startTime
     
     out_image = img.copy()
-    out_image, rendering_time, classifying_time, face_detection_time = movenet_processing(out_image, max_people=max_people, blur_faces=blurring, insightface=insightface)
+    out_image, rendering_time, classifying_time, face_detection_time = movenet_processing(out_image, max_people=max_people, blur_faces=blurring, insightface=False)
     noFrames += 1
 
     if rendering_time != -1:
@@ -38,10 +38,10 @@ def callback(frame):
     print(f'ACTION RECOGNITION TIME - {mean_action_recognition_time * 1000: 03f}ms')
 
     if blurring:
-        #if not insightface:
-        print(f'FACE DETECTION TIME [Proposed] - {mean_face_detection_time * 1000: 03f}ms')
-        #else:
-            #print(f'FACE DETECTION TIME [InsightFace] - {mean_face_detection_time * 1000: 03f}ms')
+        if not insightface:
+            print(f'FACE DETECTION TIME [Proposed] - {mean_face_detection_time * 1000: 03f}ms')
+        else:
+            print(f'FACE DETECTION TIME [InsightFace] - {mean_face_detection_time * 1000: 03f}ms')
 
     print(f'RENDERING TIME - {mean_rendering_time * 1000: 03f}ms')
     print(f'FPS - {fps: 01f}')

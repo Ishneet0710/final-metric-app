@@ -5,7 +5,7 @@ import numpy as np
 from MoveNet_Drawing_Utils import draw_skeleton
 from MoveNet_Classifier_Utils import classifier_prediction_for_person
 from Face_Detection_Utils import blur_face
-from Face_Detection_Utils_InsightFace import blur_faces_insightface
+# from Face_Detection_Utils_InsightFace import blur_faces_insightface
 from sklearn.preprocessing import StandardScaler
 import time
 

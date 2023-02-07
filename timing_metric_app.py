@@ -38,10 +38,10 @@ def callback(frame):
     print(f'ACTION RECOGNITION TIME - {mean_action_recognition_time * 1000: 03f}ms')
 
     if blurring:
-        if not insightface:
-            print(f'FACE DETECTION TIME [Proposed] - {mean_face_detection_time * 1000: 03f}ms')
-        else:
-            print(f'FACE DETECTION TIME [InsightFace] - {mean_face_detection_time * 1000: 03f}ms')
+        #if not insightface:
+        print(f'FACE DETECTION TIME [Proposed] - {mean_face_detection_time * 1000: 03f}ms')
+        #else:
+            #print(f'FACE DETECTION TIME [InsightFace] - {mean_face_detection_time * 1000: 03f}ms')
 
     print(f'RENDERING TIME - {mean_rendering_time * 1000: 03f}ms')
     print(f'FPS - {fps: 01f}')
@@ -72,7 +72,7 @@ render_metric, ar_metric, face_det_metric, fps_metric = st.columns(4)
 
 max_people = st.number_input('Maximum Number of People', value = 1, min_value=1, max_value=6)
 blurring = st.checkbox("Face Blurring", value=False)
-insightface = st.checkbox("InsightFace", value=False)
+#insightface = st.checkbox("InsightFace", value=False)
 
 ctx = webrtc_streamer(
     key="real-time",
